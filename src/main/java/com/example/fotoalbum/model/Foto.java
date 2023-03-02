@@ -1,9 +1,13 @@
 package com.example.fotoalbum.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -84,6 +88,18 @@ public class Foto {
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
+	
+	public List<Categorie> getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(List<Categorie> categorie) {
+		this.categorie = categorie;
+	}
+
+
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Categorie> categorie;
 
 
 }

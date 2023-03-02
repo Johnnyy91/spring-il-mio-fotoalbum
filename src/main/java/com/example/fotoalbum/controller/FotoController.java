@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.fotoalbum.model.Foto;
+import com.example.fotoalbum.repository.CategorieRepository;
 import com.example.fotoalbum.repository.FotoRepository;
 
 import jakarta.validation.Valid;
@@ -23,6 +24,12 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/")
 public class FotoController {
+	
+	@Autowired
+	FotoRepository fotorepository ;
+	
+	@Autowired
+	CategorieRepository categorierepository ;
 	
 	@GetMapping()
 	public String home(@RequestParam(name="keyword", required = false) String keyword, Model model) {
@@ -40,10 +47,7 @@ public class FotoController {
 		model.addAttribute("foto", listFoto);
 		return "index";
 	}
-	
-	 @Autowired
-	 FotoRepository fotorepository;
-	 
+		 
 	 // SEARCH FOTO
 	 @GetMapping("/foto/{id}")
 	 public String detail_id (@PathVariable("id") Integer id , Model model ) {
@@ -127,7 +131,7 @@ public class FotoController {
 			
 			
 			 if (bindingResult.hasErrors())
-				return "/edit";
+				return "/detail";
 			
 			    fotorepository.save(formFoto);
 			
