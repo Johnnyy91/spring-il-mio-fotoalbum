@@ -34,6 +34,7 @@ public class Foto {
 	@NotEmpty(message="imgPath must be not empty")
 	private String url;
 	
+	@NotEmpty(message="imgPath must be not empty")
 	@NotNull(message="price must be not null")
 	private String tag;
 	

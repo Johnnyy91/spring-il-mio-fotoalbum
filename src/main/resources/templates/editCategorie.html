@@ -10,7 +10,7 @@
 	<h1 >Categorie</h1>
 	<hr/>
 	<form id="formCategorie" th:object="${categorie}"
-	  th:action="@{/categorie/edit/{id}(id=${categorie.id})}" method="post">
+	  th:action="@{/categorie/edit/{id}(id=${categorie.id})}" method="post">  // @{/categorie/edit/{id}(id=${categorie.id})}
 	  	<ul>
 	      <li 
 	         th:each="err : ${#fields.allErrors()}" 
@@ -29,8 +29,8 @@
 
 
 
-	  		<button type="submit" class="btn btn-primary">Salva</button>
-	  		<a class="btn btn-primary" th:href="@{/}">Annulla</a>
+	  		<button type="submit" class="btn btn-success">Salva</button>
+	  		<a class="btn btn-danger" th:href="@{/}">Annulla</a>
 	  		</div>
 
   		</div>
