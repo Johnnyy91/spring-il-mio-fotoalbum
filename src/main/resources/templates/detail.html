@@ -18,13 +18,12 @@
 	    <p th:text="${foto.tag}"></p>
         <img class="img-thumbnail" alt="foto-logo" th:src="${foto.url}" />
         
-     <!-->
+     
         <h1>Categoria:</h1>
-				<div th:each=" categorie : ${detail.categorie}" >
+				<div th:each=" categorie : ${indexCategorie}" >
 					<h3 th:text="${categorie.name}" ></h3>
-				
 				</div>
-     <!-->
+  
         
         <a class="btn btn-primary my-2" th:href="@{'/edit/{id}'(id=${foto.id})}"><i class="fa-regular fa-pen-to-square"></i>Modifica foto</a>
 	
